@@ -26,7 +26,7 @@ class Solution:
         # Return np.round(final_weights, 5)
         weights = initial_weights
         for i in range(num_iterations):
-            model_predictions = self.get_model_prediction(X, initial_weights)
+            model_predictions = self.get_model_prediction(X,weights)
             gradient = np.array([self.get_derivative(model_predictions, Y, len(X), X, i) for i in range(len(weights))])
             weights -= (self.learning_rate * gradient)
         return np.round(weights, 5)
