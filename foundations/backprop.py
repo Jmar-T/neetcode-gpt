@@ -14,12 +14,12 @@ class Solution:
         # Loss: L = 0.5 * (y_hat - y_true)^2
         # Return: (dL_dw rounded to 5 decimals, dL_db rounded to 5 decimals)
         pass
-        z = sum(x*w) + b
+        z = np.dot(x,w) + b
         y_hat = (1 / (1 + np.exp(-z)))
 
         diff = y_hat - y_true
         # loss = .5 * (diff * diff)
 
-        dl_dw = (y_hat - y_true) * (y_hat)*(1-y_hat) * x
-        dl_db = (y_hat - y_true) * (y_hat)*(1-y_hat)
+        dl_db = diff * (y_hat)*(1-y_hat)
+        dl_dw = dl_db * x
         return (np.round(dl_dw, 5), np.round(dl_db, 5))
