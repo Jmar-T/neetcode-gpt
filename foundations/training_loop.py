@@ -21,7 +21,7 @@ class Solution:
         for i in range(epochs):
             y_hat = (X @ w) + b
             
-            MSE = (1/n_samples) * sum((y_hat-y)**2)
+            # MSE = (1/n_samples) * sum((y_hat-y)**2)
 
             dLw = ((2/n_samples) * X.T@(y_hat-y))
             dLb = 2 * np.mean(y_hat - y)
